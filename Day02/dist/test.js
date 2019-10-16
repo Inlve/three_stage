@@ -1,0 +1,1 @@
+for(var i=0;i<5;i++){if(i===1)var y=i;if(i==2)break;if(i!=1)break}var zz=()=>{return y=5}var del=data=>{var y=0}var zsh=data=>zsh*2;var hell=(data,cb)=>{data*=2;cb(data)}
