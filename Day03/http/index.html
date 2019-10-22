@@ -8,6 +8,22 @@
     <title>Title</title>
 </head>
 <body>
-
+<input type="text" id="input_text" />
+<input type="button" id="input_btn" value="点击">
+<script src="jquery-3.4.1.min.js"></script>
+<script>
+    $('#input_btn').click(() => {
+        $.ajax({
+            url: "http",
+            type: 'POST',
+            data: {
+                msg: $('#input_text').val()
+            },
+            success(data) {
+                console.log(data)
+            }
+        })
+    })
+</script>
 </body>
 </html>
