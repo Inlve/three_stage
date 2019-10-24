@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <ul id="app">
+            <li v-for="a in arr">这是第{{a.id}}个,{{a.title}}</li>
+        </ul>
+        <script src="../vue.js"></script>
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    arr: [{
+                        id: 1,
+                        title: '学习html'
+                    }, {
+                        id: 2,
+                        title: '学习css'
+                    }, {
+                        id: 3,
+                        title: '学习javascript'
+                    }]
+                }
+            })
+
+        </script>
+    </body>
+
+</html>

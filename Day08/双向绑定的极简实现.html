@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Title</title>
+    </head>
+
+    <body>
+        <input type="text" id="text" />
+        <span id="sp"></span>
+
+        <script>
+            const text = document.getElementById('text');
+            const sp = document.getElementById('sp');
+
+            // const bind = () => {
+            //     // Proxy(target,handler)
+            //     // target表示要拦截的目标对象
+            //     // handler也是一个对象,
+
+            //     // 对一个空对象,进行拦截
+            //     return new Proxy({}, {
+            //         // 重定义读取(get)的行为,即拦截对象属性的读取
+            //         // 目标对象,所要访问的属性,proxy实例本身(可选)
+            //         // get(target, p, receiver) {
+            //         // },
+            //         // 重定义设置(set)行为,即拦截对象属性的设置
+            //         // 目标对象,属性名,属性值,proxy实例本身(可选)
+            //         set(target, p, value, receiver) {
+            //         }
+            //     })
+            // }
+
+
+            const obj = new Proxy({}, {
+                set(target, p, value, receiver) {
+                    text.value = value;
+                    sp.innerHTML = value;
+                }
+            })
+            text.addEventListener('input', () => {
+                obj.data = text.value;
+            })
+
+        </script>
+    </body>
+
+</html>
