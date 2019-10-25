@@ -10,7 +10,11 @@
 
     <body>
         <ul id="app">
-            <li v-for="a in arr">这是第{{a.id}}个,{{a.title}}</li>
+            <!-- <li v-for="(a,index) in arr">index:{{index}}这是第{{a.id}}个,{{a.title}}</li> -->
+            <li v-for="(a,index) of arr">index:{{index}}这是第{{a.id}}个,{{a.title}}</li>
+
+            <!-- 遍历对象 -->
+            <li v-for="(value,name,index) of obj">{{index}},{{name}}:{{value}}</li>
         </ul>
         <script src="../vue.js"></script>
         <script>
@@ -26,7 +30,11 @@
                     }, {
                         id: 3,
                         title: '学习javascript'
-                    }]
+                    }],
+                    obj: {
+                        title: 'hello',
+                        author: 'Inlve'
+                    }
                 }
             })
 

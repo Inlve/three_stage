@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <input type="button" value="点击" @click="zz" />
+            <p v-if="isOk===0">条件渲染 if</p>
+            <p v-else-if="isOk===1">条件渲染 else if</p>
+            <p v-else="isOk===2">条件渲染 else</p>
+        </div>
+        <!-- /#app -->
+
+        <script src="../vue.js"></script>
+        <script>
+            const vm = new Vue({
+                el: "#app",
+                data: {
+                    isOk: 0
+                },
+                methods: {
+                    zz() {
+                        this.isOk = parseInt(Math.random() * 3);
+                    }
+                }
+            })
+
+        </script>
+    </body>
+
+</html>

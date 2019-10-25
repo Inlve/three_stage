@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <ul id="app">
+            <input type="button" value="reverse" @click="reverse" />
+            <input type="button" value="push" @click="push" />
+            <input type="button" value="unshift" @click="unshift" />
+            <li v-for="(a,index) in arr">{{index}} {{a.title}}</li>
+        </ul>
+        <!-- /#app -->
+        <script src="vue.js"></script>
+        <script>
+            // 当对数组进行更新,
+            // 也就是说,使用push,pop,shift,unshift,splice,sort,reverse,会导致视图更新
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    arr: [{
+                            title: '学习html'
+                        },
+                        {
+                            title: '学习css'
+                        },
+                        {
+                            title: '学习javascript'
+                        }
+                    ]
+                },
+                methods: {
+                    reverse() {
+                        this.arr.reverse();
+                    },
+                    push() {
+                        this.arr.push({
+                            title: '这是push的li'
+                        });
+                    },
+                    unshift() {
+                        this.arr.unshift({
+                            title: '这是unshift的li'
+                        });
+                    }
+                }
+            })
+
+        </script>
+    </body>
+
+</html>

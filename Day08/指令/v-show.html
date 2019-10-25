@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            #app div {
+                width: 100px;
+                height: 100px;
+                background: #5588cc;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <div v-show="ok"></div>
+        </div>
+        <!-- /#app -->
+
+        <script src="../vue.js"></script>
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    // ok: true
+                    ok: false
+                }
+            })
+
+        </script>
+    </body>
+
+</html>

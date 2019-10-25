@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <input type="text" v-model="msg" />
+            <p v-text="msg"></p>
+        </div>
+        <!-- /#app -->
+        <script src="vue.js"></script>
+        <script>
+            // 只要值发生变化就会触发侦听器
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    msg: ''
+                },
+                watch: {
+                    // 如果'msg'发生变化就会执行这个函数
+                    // 函数名必须和属性名一样
+                    msg: function (newVal, oldVal) {
+                        console.log('触发了侦听器');
+                        // newVal是变化后的值,odlVal是变化前的值
+                        console.log(newVal, oldVal);
+                    }
+                }
+            })
+
+        </script>
+    </body>
+
+</html>

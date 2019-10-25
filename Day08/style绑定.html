@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <input type="button" value="点击" @click="zz" />
+            <div v-bind:style="styleObj"></div>
+        </div>
+        <!-- /#app -->
+        <script src="vue.js"></script>
+        <script>
+            const vm = new Vue({
+                el: "#app",
+                data: {
+                    styleObj: {
+                        // 注意属性名是驼峰式命名
+                        background: '#58c',
+                        fontSize: '21px',
+                        width: '100px',
+                        height: '100px'
+                    }
+                },
+                methods: {
+                    zz() {
+                        this.styleObj.background = "green";
+                    }
+                }
+            })
+
+        </script>
+    </body>
+
+</html>

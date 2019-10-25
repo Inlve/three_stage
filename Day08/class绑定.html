@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            #app>div {
+                width: 100px;
+                height: 100px;
+                background: #58bc58;
+            }
+
+            #app>.active {
+                background: #58c;
+                transition: all .5s;
+            }
+
+            #app>.error {
+                background: red;
+                transition: all .5s;
+            }
+
+            #app.font-big {
+                font-size: 18px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <input type="button" value="点击" @click="change" />
+            <!-- active是否出现,是根据isActive的值来确定的 -->
+            <div v-bind:class="{active:isActive}"></div>
+            <!-- 或者是有一个对象来实现 -->
+            <div v-bind:class="classObj"></div>
+            <!-- 或者是一个数组 -->
+            <div v-bind:class="[{active:isActive},actClass]"></div>
+        </div>
+        <!-- /#app -->
+
+        <script src="vue.js"></script>
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    isActive: true,
+                    classObj: {
+                        error: false,
+                        'font-big': false
+                    },
+                    actClass: ['error', 'font-big'] // 或者 'error font-big
+                },
+                methods: {
+                    change: function () {
+                        this.isActive = !this.isActive;
+                        this.classObj.error = !this.classObj.error;
+                        this.classObj['font-big'] = !this.classObj['font-big'];
+                    }
+                }
+            })
+
+        </script>
+    </body>
+
+</html>
