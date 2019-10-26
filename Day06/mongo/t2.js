@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 MongoClient.connect('mongodb://localhost', (error, result) => {
     if (error) throw error;
     console.log('数据库成功连接!');
-    const db = result.db('db');
+    const db = result.db('test');
     console.log(db);
 
     // 创建集合
@@ -89,10 +89,13 @@ MongoClient.connect('mongodb://localhost', (error, result) => {
 
     // 排序 sort()
     // title:1 升序/-1降序 ,按title字段来排序
-    // db.collection('zz').find().sort({title:-1}).toArray((error,result)=>{
-    //     if(error) throw error;
-    //     console.log(result);
-    // });
+    // db.collection('zz').
+    //     find().
+    //     sort({uid: -1}).
+    //     toArray((error, result) => {
+    //         if (error) throw error;
+    //         console.log(result);
+    //     });
 
     // 查询分页 limit()
     // 读取前两条数据
@@ -102,7 +105,7 @@ MongoClient.connect('mongodb://localhost', (error, result) => {
     // });
     // 跳过前两条数据,再读取两条
     // skip()跳过
-    // db.collection('zz').find().skip(2).limit(2).toArray((error, result) => {
+    // db.collection('zz').find().skip(1).limit(3).toArray((error, result) => {
     //     if (error) throw error;
     //     console.log(result);
     // });
