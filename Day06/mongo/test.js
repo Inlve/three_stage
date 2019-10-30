@@ -1,6 +1,13 @@
 const mongoFn = require('./t1');
+const mongodb = require('mongodb');
+
 
 (async ()=>{
-    let zz=await mongoFn.find({col:'zz',sort:{uid:-1}});
-    console.log(zz);
+    console.log(await mongoFn.getDataBase());
+    console.log(await mongoFn.getCollection('test'));
 })();
+// mongoFn.getDataBase().then((result) => {
+//     console.log(result);
+// }).catch((err) => {
+//     console.log(err)
+// });

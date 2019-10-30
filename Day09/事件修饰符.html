@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            a {
+                display: block;
+                margin: 20px;
+            }
+
+            button {
+                margin: 20px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <a href="https://baidu.com" @click.prevent="show" target="_bank">.prevent阻止默认事件</a>
+            <button @click.once="show">.once只触发一次</button>
+            <div @click="show">
+                <button @click="show">未阻止冒泡</button>
+                <button @click.stop="show">.stop阻止冒泡</button>
+            </div>
+            <div @click="show" style="background: red;width: 400px;height: 400px;">
+                <div @click._self="show" style="background: #58c;width: 100px;height: 100px;padding: 50px;"></div>
+            </div>
+        </div>
+        <!-- /#app -->
+        <script src="./vue.js"></script>
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {},
+                methods: {
+                    show() {
+                        console.log('ok');
+                    }
+                }
+            })
+
+        </script>
+    </body>
+
+</html>

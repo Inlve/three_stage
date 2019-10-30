@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            [v-cloak] {
+                display: none;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <p>过滤器只能用在插值表达式和v-bind表达式中,使用"|"调用过滤器</p>
+        <div id="app">
+            <input type="button" value="获取时间" @click="getDate" />
+            <p v-cloak>{{date | dateFormate}}</p>
+        </div>
+        <!-- /#app -->
+
+        <script src="vue.js"></script>
+        <script>
+            Vue.filter('dateFormate', function (originVal) {
+                console.log(String(originVal).split(' '));
+            })
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    date: ''
+                },
+                methods: {
+                    getDate() {
+                        this.date = new Date();
+                    }
+                }
+            })
+
+        </script>
+    </body>
+
+</html>

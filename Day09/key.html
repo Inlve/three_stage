@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <p>这是第一个,input不加key,会复用文本框</p>
+        <div id="app1">
+            <template v-if="myInput">
+                <label>username:</label>
+                <input placeholder="Enter your username">
+            </template>
+
+            <template v-else>
+                <label>password:</label>
+                <input placeholder="Enter your password">
+            </template>
+            <button @click="myInput = !myInput">点击</button>
+        </div>
+
+        <p>这是第二个,input加key,不会复用,两个文本框不是同一个</p>
+        <div id="app2">
+            <template v-if="myInput">
+                <label>username:</label>
+                <input placeholder="Enter your username" key="user">
+            </template>
+
+            <template v-else>
+                <label>password:</label>
+                <input placeholder="Enter your password" key="passwd">
+            </template>
+            <button @click="myInput = !myInput">点击</button>
+        </div>
+        <!-- /#app -->
+
+        <script src="vue.js"></script>
+        <script>
+            const vm1 = new Vue({
+                el: '#app1',
+                data: {
+                    myInput: true
+                },
+            })
+            const vm2 = new Vue({
+                el: '#app2',
+                data: {
+                    myInput: true
+                },
+            })
+
+        </script>
+    </body>
+
+</html>
