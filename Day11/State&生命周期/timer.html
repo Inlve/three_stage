@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang = "zh">
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "Content-Type" content = "text/html;charset=UTF-8" />
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge" />
+    <title>Title</title>
+</head>
+<body>
+<div id="root"></div>
+<!-- /#root -->
+<script src = "../react.development.js"></script>
+<script src = "../react-dom.development.js"></script>
+<script src = "../babel.min.js"></script>
+<script type="text/babel">
+    // 添加局部的state
+    // State和props类似,但是state是私有的,并且完全受控于当前组件
+    class NowTime extends React.Component{
+        // 添加构造函数,为this.state赋初值
+        // 构造函数是唯一可以给this.state赋值的地方;
+        // 其他时要修改state必须使用setState()
+        constructor (props){
+            // 通过这种方式,将props传递到父类的构造函数中
+            // Class组件应该始终使用props参数来调用父类的构造函数
+            // State的更新可能是异步的
+            super(props);
+            this.state = {time:new Date()};
+        }
+
+        // 组件的生命周期方法:
+        // 当组件第一次被渲染到DOM中的时候,被称为挂载mount
+        componentDidMount () {
+            // 生成定时器
+            this.timerId = setInterval(()=>this.updateTime(),1000)
+        }
+
+        // 当组件从DOM中删除的时候,被称为卸载unmount
+        componentWillUnmount () {
+            // 清除定时器
+            clearInterval(this.timerId);
+        }
+
+        updateTime(){
+            // 使用this.setState()来时刻更新组件state
+            this.setState({
+                time:new Date()
+            });
+        }
+        render () {
+            return <div>
+                现在时间是:
+                <span>{this.state.time.toLocaleTimeString()}.</span>
+            </div>
+        }
+    }
+
+    ReactDOM.render(
+        <NowTime />,
+        document.getElementById('root')
+    )
+</script>
+</body>
+</html>

@@ -111,20 +111,20 @@ MongoClient.connect('mongodb://localhost', (error, result) => {
     // });
 
     // 连接操作 $lookup
-    // db.collection('test').aggregate([
-    //     {
-    //         $lookup: {
-    //             from: 'zz',// 右集合
-    //             localField: 'uid',// 左集合join字段
-    //             foreignField: 'uid',// 右集合join字段
-    //             as: 'z_id'//新生成的字段,类型(array)
-    //         }
-    //     }
-    // ]).toArray(((error1, result1) => {
-    //     if(error1) throw error1;
-    //     console.log(JSON.stringify(result1));
-    //     // console.log(result1);
-    // }));
+    db.collection('xyzs').aggregate([
+        {
+            $lookup: {
+                from: 'zz',// 右集合
+                localField: 'udi',// 左集合join字段
+                foreignField: 'name',// 右集合join字段
+                as: 'z_id'//新生成的字段,类型(array)
+            }
+        }
+    ]).toArray(((error1, result1) => {
+        if (error1) throw error1;
+        console.log(JSON.stringify(result1, undefined, 2));
+        // console.log(result1);
+    }));
 
     // 删除集合 drop()
     // db.collection('test').drop((error,delOk)=>{

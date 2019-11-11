@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang = "zh">
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "Content-Type" content = "text/html;charset=UTF-8" />
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge" />
+    <title>Title</title>
+</head>
+<body>
+<div id="root"></div>
+<!-- /#app -->
+
+<script src = "../react.development.js"></script>
+<script src = "../react-dom.development.js"></script>
+<script src = "../babel.min.js"></script>
+
+<script type="text/babel">
+    /// 切换开关状态
+    class Toggle extends React.Component{
+        constructor (props) {
+            super(props);
+            this.state = {isOn:true};
+
+            // 为了在回调中使用`this`,这个绑定是必不可少的
+            this.change = this.change.bind(this);
+        }
+        change(e){
+            console.log(e);
+            this.setState(state=>({
+                isOn: !state.isOn
+            }))
+        }
+        render () {
+            return <button onClick={this.change}>{this.state.isOn ? 'On':'Off'}</button>
+        }
+    }
+
+    ReactDOM.render(
+        <Toggle />,
+        document.getElementById('root')
+    )
+</script>
+</body>
+</html>
