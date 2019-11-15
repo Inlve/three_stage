@@ -2,19 +2,31 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/列表&amp;Key/list.js" />
-        <item url="file://$PROJECT_DIR$/条件渲染/login.js" />
-        <item url="file://$PROJECT_DIR$/状态提升/change.js" />
-        <item url="file://$PROJECT_DIR$/表单/account.js" />
-        <item url="file://$PROJECT_DIR$/表单/form.js" />
+        <item url="file://$PROJECT_DIR$/05条件渲染/login.js" />
+        <item url="file://$PROJECT_DIR$/06列表&amp;Key/list.js" />
+        <item url="file://$PROJECT_DIR$/07表单/account.js" />
+        <item url="file://$PROJECT_DIR$/07表单/form.js" />
+        <item url="file://$PROJECT_DIR$/08状态提升/change.js" />
+        <item url="file://$PROJECT_DIR$/09组合vs继承/包含关系/index.js" />
+        <item url="file://$PROJECT_DIR$/10Context/使用Context/index.js" />
+        <item url="file://$PROJECT_DIR$/11Refs转发/初步使用/index.js" />
+        <item url="file://$PROJECT_DIR$/11Refs转发/高阶组件中使用/index.js" />
+        <item url="file://$PROJECT_DIR$/Redux/入门/Search.js" />
+        <item url="file://$PROJECT_DIR$/Redux/入门/index.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/列表&amp;Key/list.js" />
-      <root url="file://$PROJECT_DIR$/条件渲染/login.js" />
-      <root url="file://$PROJECT_DIR$/状态提升/change.js" />
-      <root url="file://$PROJECT_DIR$/表单/account.js" />
-      <root url="file://$PROJECT_DIR$/表单/form.js" />
+      <root url="file://$PROJECT_DIR$/05条件渲染/login.js" />
+      <root url="file://$PROJECT_DIR$/06列表&amp;Key/list.js" />
+      <root url="file://$PROJECT_DIR$/07表单/account.js" />
+      <root url="file://$PROJECT_DIR$/07表单/form.js" />
+      <root url="file://$PROJECT_DIR$/08状态提升/change.js" />
+      <root url="file://$PROJECT_DIR$/09组合vs继承/包含关系/index.js" />
+      <root url="file://$PROJECT_DIR$/10Context/使用Context/index.js" />
+      <root url="file://$PROJECT_DIR$/11Refs转发/初步使用/index.js" />
+      <root url="file://$PROJECT_DIR$/11Refs转发/高阶组件中使用/index.js" />
+      <root url="file://$PROJECT_DIR$/Redux/入门/Search.js" />
+      <root url="file://$PROJECT_DIR$/Redux/入门/index.js" />
     </CLASSES>
     <SOURCES />
   </library>

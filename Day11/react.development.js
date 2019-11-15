@@ -615,10 +615,10 @@ function getComponentName(type) {
   if (typeof type === 'object') {
     switch (type.$$typeof) {
       case REACT_CONTEXT_TYPE:
-        return 'Context.Consumer';
+        return '10Context.Consumer';
 
       case REACT_PROVIDER_TYPE:
-        return 'Context.Provider';
+        return '10Context.Provider';
 
       case REACT_FORWARD_REF_TYPE:
         return getWrappedName(type, type.render, 'ForwardRef');
@@ -1301,7 +1301,7 @@ function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext)
  *
  * @param {?*} children Children tree object.
  * @param {!function} callback To invoke upon traversing each child.
- * @param {?*} traverseContext Context for traversal.
+ * @param {?*} traverseContext 10Context for traversal.
  * @return {!number} The number of children in this subtree.
  */
 
@@ -1349,7 +1349,7 @@ function forEachSingleChild(bookKeeping, child, name) {
  *
  * @param {?*} children Children tree container.
  * @param {function(*, int)} forEachFunc
- * @param {*} forEachContext Context for forEachContext.
+ * @param {*} forEachContext 10Context for forEachContext.
  */
 
 
@@ -1406,7 +1406,7 @@ function mapIntoWithKeyPrefixInternal(children, array, prefix, func, context) {
  *
  * @param {?*} children Children tree container.
  * @param {function(*, int)} func The map function.
- * @param {*} context Context for mapFunction.
+ * @param {*} context 10Context for mapFunction.
  * @return {object} Object containing the ordered map of results.
  */
 
@@ -1513,7 +1513,7 @@ function createContext(defaultValue, calculateChangedBits) {
   {
     // A separate object, but proxies back to the original context object for
     // backwards compatibility. It has a different $$typeof, so we can properly
-    // warn for the incorrect usage of Context as a Consumer.
+    // warn for the incorrect usage of 10Context as a Consumer.
     var Consumer = {
       $$typeof: REACT_CONTEXT_TYPE,
       _context: context,
@@ -1525,7 +1525,7 @@ function createContext(defaultValue, calculateChangedBits) {
         get: function () {
           if (!hasWarnedAboutUsingConsumerProvider) {
             hasWarnedAboutUsingConsumerProvider = true;
-            warning$1(false, 'Rendering <Context.Consumer.Provider> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Provider> instead?');
+            warning$1(false, 'Rendering <10Context.Consumer.Provider> is not supported and will be removed in ' + 'a future major release. Did you mean to render <10Context.Provider> instead?');
           }
 
           return context.Provider;
@@ -1562,7 +1562,7 @@ function createContext(defaultValue, calculateChangedBits) {
         get: function () {
           if (!hasWarnedAboutUsingNestedContextConsumers) {
             hasWarnedAboutUsingNestedContextConsumers = true;
-            warning$1(false, 'Rendering <Context.Consumer.Consumer> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Consumer> instead?');
+            warning$1(false, 'Rendering <10Context.Consumer.Consumer> is not supported and will be removed in ' + 'a future major release. Did you mean to render <10Context.Consumer> instead?');
           }
 
           return context.Consumer;
@@ -1693,9 +1693,9 @@ function useContext(Context, unstable_observedBits) {
       // and nobody should be using this in existing code.
 
       if (realContext.Consumer === Context) {
-        warning$1(false, 'Calling useContext(Context.Consumer) is not supported, may cause bugs, and will be ' + 'removed in a future major release. Did you mean to call useContext(Context) instead?');
+        warning$1(false, 'Calling useContext(10Context.Consumer) is not supported, may cause bugs, and will be ' + 'removed in a future major release. Did you mean to call useContext(10Context) instead?');
       } else if (realContext.Provider === Context) {
-        warning$1(false, 'Calling useContext(Context.Provider) is not supported. ' + 'Did you mean to call useContext(Context) instead?');
+        warning$1(false, 'Calling useContext(10Context.Provider) is not supported. ' + 'Did you mean to call useContext(10Context) instead?');
       }
     }
   }
